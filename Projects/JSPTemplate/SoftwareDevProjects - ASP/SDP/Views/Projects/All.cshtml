@@ -1,0 +1,96 @@
+﻿@model IEnumerable<SDP.Models.Project>
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+    let ids = [];
+    function updateIds(id) {
+        if (ids.includes(id)) {
+            ids = ids.filter(i => i !== id);
+        } else {
+            ids.push(id);
+        }
+    }
+
+    $(document).ready(function () {
+        $('form').submit(function (event) {
+            event.preventDefault(); // Prevent the form from submitting the default way
+            let developer = $('input[placeholder="Developer"]').val();
+
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("UpdateSelectedProjects", "Projects")",
+                contentType: "application/json",
+                data: JSON.stringify({ developer: developer, projectIds: ids }),
+                success: function (response) {
+                    if (response.success) {
+                        alert(response.message);
+                    } else {
+                        alert("An error occurred.");
+                    }
+                },
+                error: function (xhr, status, error) {
+                    alert("An error occurred: " + error);
+                }
+            });
+        });
+    });
+</script>
+<p>
+    <a asp-action="Create">Create New</a>
+    <form>
+        <input type="text" placeholder="Developer" />
+        <input type="submit" value="Submit" />
+    </form>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.SoftwareDeveloper)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Members)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <input type="checkbox" onchange="updateIds(@item.ProjectId)" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoftwareDeveloper.SoftwareDeveloperId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Members)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ProjectId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ProjectId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ProjectId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

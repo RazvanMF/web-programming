@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Lab10WebAssignment.Models.Book>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_UserLayout";
+}
+
+<h1>Account-Based Personal Book Library</h1>
+<form asp-controller="Books" asp-action="Index" method="get" class="d-grid gap-3">
+    <p>
+        Title: <input type="text" name="searchTitle" class="form-control"/>
+        Author: <input type="text" name="searchAuthor" class="form-control" />
+        Genre: <input type="text" name="searchGenre" class="form-control" />
+    </p>
+    <input type="submit" value="Filter" class="btn btn-primary" />
+</form>
+<p>
+    <a asp-action="Create">Create New</a>
+    <a asp-action="FilterLog">See Filter Log</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Author)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pages)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Genre)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Author)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pages)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genre)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

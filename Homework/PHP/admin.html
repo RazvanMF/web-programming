@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<head>
+    <title>ADMIN PAGE >:D</title>
+    <link rel="stylesheet" href="admin.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="text-element-comic title-presenter">
+        <div>BIG BAD ADMIN PAGE >:D</div>
+        <div>here you can add, update or delete books (swag),</div>
+        <div>as well as see the whole list of books (wow).</div>
+        <div>ENJOJ!</div>
+    </div>
+    <div class="crud-presenter">
+        <div id="book-container" name="book-container" class="book-container text-element-comic">
+            WAIT FOR THIS TO BE EDITED.
+        </div>
+        <div class="book-adder">
+            <div class="text-element-comic">add a book &gt;_&lt;</div>
+            <form id="book-adder-form" action="addbook.php" method="post">
+                <table>
+                    <tr>
+                        <td class="text-element-comic">AUTHOR:</td>
+                        <td><input type="text" id="addauthor" name="addauthor"/></td>
+                    </tr>
+                    <tr>
+                        <td class="text-element-comic">TITLE:</td>
+                        <td><input type="text" id="addtitle" name="addtitle"/></td>
+                    </tr>
+                    <tr>
+                        <td class="text-element-comic">PAGES:</td>
+                        <td><input type="text" id="addpages" name="addpages"/></td>
+                    </tr>
+                    <tr>
+                        <td class="text-element-comic">GENRE:</td>
+                        <td><input type="text" id="addgenre" name="addgenre"/></td>
+                    </tr>
+                    <tr>
+                        <td class="text-element-comic">LENDER:</td>
+                        <td><select id="add-user-filter"></select></td>
+                    </tr>
+                </table>
+            <input type="submit" value="ROFLCOPTER THIS ENTRY INTO THE DB">
+            </form>
+        </div>
+        <div class="book-updater">
+            <div class="text-element-comic">update a book :P</div>
+            <form id="book-updater-form" action="updatebook.php" method="post">
+                <table>
+                    <tr>
+                        <td class="text-element-comic">ID:</td>
+                        <td><input type="text" id="updateid" name="updateid" disabled></td>
+                    </tr>
+                    <tr>
+                        <td class="text-element-comic">AUTHOR:</td>
+                        <td><input type="text" id="updateauthor" name="updateauthor"/></td>
+                    </tr>
+                    <tr>
+                        <td class="text-element-comic">TITLE:</td>
+                        <td><input type="text" id="updatetitle" name="updatetitle"/></td>
+                    </tr>
+                    <tr>
+                        <td class="text-element-comic">PAGES:</td>
+                        <td><input type="text" id="updatepages" name="updatepages"/></td>
+                    </tr>
+                    <tr>
+                        <td class="text-element-comic">GENRE:</td>
+                        <td><input type="text" id="updategenre" name="updategenre"/></td>
+                    </tr>
+                    <tr>
+                        <td class="text-element-comic">LENDER:</td>
+                        <td><select id="update-user-filter"></select></td>
+                    </tr>
+                </table>
+            <input type="submit" value="LMAONADE THIS ENTRY INTO THE DB">
+            </form>
+            <button onclick="purgeFromUpdate()">GET THIS DATA OUT OF MY SIGHT</button>
+        </div>
+    </div>
+    <button onclick="goBack()">GO BACK :(</button>
+
+    <script src="admin.js"></script>
+</body>

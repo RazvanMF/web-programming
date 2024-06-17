@@ -1,0 +1,10 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<String>;
+@inject IHttpContextAccessor HttpContextAccessor;
+@{
+    <div class="text-center">
+        <div>Successfully logged in, @HttpContextAccessor.HttpContext.Session.GetString("username"), with password @HttpContextAccessor.HttpContext.Session.GetString("password").</div>
+    </div>
+}

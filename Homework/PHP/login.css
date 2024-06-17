@@ -1,0 +1,14 @@
+body {
+    background-color: #cdcdcd;
+}
+
+.text-element-comic {
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+    font-weight: bold;
+}
+
+.label-input-combo {
+    display: grid;
+
+    gap: 10px;
+}

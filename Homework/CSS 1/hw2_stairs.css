@@ -1,0 +1,116 @@
+/* This is a single-line comment */
+
+@keyframes spincube1 {
+  0% {transform: rotate3d(var(--xDir), var(--yDir), var(--zDir), 0deg)}
+  100% {transform: rotate3d(var(--xDir), var(--yDir), var(--zDir), 360deg);}
+}
+
+@keyframes spincube2 {
+  0% {transform: rotate3d(var(--xDir), var(--yDir), var(--zDir), 0deg) scaleY(1.5) translateY(-17px) translateZ(-100px);}
+  100% {transform: rotate3d(var(--xDir), var(--yDir), var(--zDir), 360deg) scaleY(1.5) translateY(-17px) translateZ(-100px);}
+}
+
+@keyframes spincube3 {
+  0% {transform: rotate3d(var(--xDir), var(--yDir), var(--zDir), 0deg) scaleY(2) translateY(-25px) translateZ(-200px);}
+  100% {transform: rotate3d(var(--xDir), var(--yDir), var(--zDir), 360deg) scaleY(2) translateY(-25px) translateZ(-200px);}
+}
+
+:root {
+  --xDir: 0.33;
+  --yDir: 1;
+  --zDir: 0;
+  --angle: -45deg;
+}
+
+.text {
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  font-size: 36px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+
+  perspective: 500px;
+}
+
+.step1 {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  transform-style: preserve-3d;
+  transform: rotate3d(var(--xDir), var(--yDir), var(--zDir), var(--angle));
+  z-index: 3;
+
+  animation: spincube1 5s linear infinite;
+}
+
+.step2 {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  transform-style: preserve-3d;
+  transform: rotate3d(var(--xDir), var(--yDir), var(--zDir), var(--angle)) scaleY(1.5) translateY(-17px) translateZ(-100px);
+  z-index: 2;
+
+  animation: spincube2 5s linear infinite;
+}
+
+.step3 {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  transform-style: preserve-3d;
+  transform: rotate3d(var(--xDir), var(--yDir), var(--zDir), var(--angle)) scaleY(2) translateY(-25px) translateZ(-200px);
+  z-index: 1;
+
+  animation: spincube3 5s linear infinite;
+}
+
+.face {
+  width: 100px;
+  height: 100px;
+  background: darkred;
+  border: 2px solid black;
+  position: absolute;
+  opacity: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.right {
+  transform: rotateY(90deg) translateX(50px) translateZ(50px);
+  box-shadow: -1px 1px 10px rgb(243, 170, 23)
+}
+
+.top {
+  transform: rotateX(90deg) translateZ(50px) translateY(-50px);
+  box-shadow: -1px 1px 10px rgb(243, 170, 23);
+}
+
+.front {
+  box-shadow: -1px 1px 10px rgb(243, 170, 23);
+}
+
+.bottom {
+  transform: rotateX(90deg) translateZ(-50px) translateY(-50px);
+  box-shadow: -1px 1px 10px rgb(243, 170, 23);
+}
+
+.back {
+  transform: translateZ(-100px);
+  box-shadow: -1px 1px 10px rgb(243, 170, 23);
+}
+
+.right {
+  transform: rotateY(90deg) translateX(50px) translateZ(-50px);
+  box-shadow: -1px 1px 10px rgb(243, 170, 23)
+}

@@ -1,0 +1,70 @@
+body {
+    background-color: #888;
+    height: 95vh;
+    width: 95vw;
+}
+
+.text-element-comic {
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.title-presenter {
+    height: 20%;
+}
+
+.menu-presenter {
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-and-filters {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    height: 90%;
+}
+
+.filter-presenter {
+    display: flex;
+    flex-direction: row;
+    height: 10%;
+}
+
+
+.book-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    overflow-y: scroll;
+    height: 100%;
+    scrollbar-width: none;
+    width: 50%;
+}
+
+.old-filters {
+    width: 50%;
+
+    overflow-y: scroll;
+    height: 100%;
+    scrollbar-width: none;
+    width: 50%;
+}
+
+.booklet-container {
+    border: 3px #ffffff solid;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.historylette-displayer {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+

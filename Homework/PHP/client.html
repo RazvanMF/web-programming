@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<head>
+    <title>CLIENT PAGE :D</title>
+    <link rel="stylesheet" href="client.css"/>
+</head>
+<body>
+    <div class="text-element-comic title-presenter">
+        <div>CLIENT PAGE :*</div>
+        <div>here you can browse books,</div>
+        <div>filter them by author or genre, and rent them (nice).</div>
+        <div>be warned that you can't see books that are rented by other people (sadge).</div>
+        <div>ENJOJ!</div>
+    </div>
+    <button onclick="goBack()">GO BACK :(</button>
+    <div class="menu-presenter">
+        <div class="text-element-comic filter-presenter">
+            <label for="author-filter">Author:</label>
+            <select id="author-filter"></select>
+    
+            <label for="genre-filter">Genre:</label>
+            <select id="genre-filter"></select>
+
+            <button onclick="applyFilters()">SUCK OUT THE BAD ENTRIES >:D</button>
+        </div>
+        <div class="container-and-filters">
+            <div id="book-container" name="book-container" class="book-container"></div>
+            <div id="old-filters" name="old-filters" class="old-filters text-element-comic booklet-container">lalaland - my personal log :></div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="client.js"></script>
+
+</body>

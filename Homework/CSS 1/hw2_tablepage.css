@@ -1,0 +1,30 @@
+.container {
+    border: 2px solid black;
+}
+
+.masterheader {
+    border: 2px solid black;
+}
+
+.child {
+    background-color: bisque;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    overflow: hidden;
+    height:100px;
+}
+
+.container:hover {
+    .child {
+        transition: height 1s;
+        height: 0px;
+    }
+}
+
+.container:not(:hover) {
+    .child {
+        transition: height 1s;
+        height: 100px;
+    }
+}

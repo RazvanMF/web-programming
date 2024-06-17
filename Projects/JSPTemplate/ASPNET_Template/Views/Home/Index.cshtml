@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    @using (Html.BeginForm("LoggedTemp", "Home", FormMethod.Post))
+    {
+        <input type="text" class="form-control" name="username" placeholder="Username:"/>
+        <input type="password" class="form-control" name="password" placeholder="Password:"/>
+        <input type="submit" class="btn btn-danger" value="LOG IN" />
+    }
+</div>

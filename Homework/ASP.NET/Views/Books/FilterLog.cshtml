@@ -1,0 +1,64 @@
+﻿@{
+    Layout = "_UserLayout";
+}
+
+@model IEnumerable<Lab10WebAssignment.Models.Log>
+<div>
+    <a asp-action="Index">Go Back</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Titles
+                </th>
+                <th>
+                    Authors
+                </th>
+                <th>
+                    Genres
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @if (item.TitleFilter == null)
+                        {
+                            <p>"All Titles"</p>
+                        }
+                        else
+                        {
+                            //@Html.DisplayFor(modelItem => item.TitleFilter)
+                            @item.TitleFilter
+                        }
+                    </td>
+                    <td>
+                        @if (item.AuthorFilter == null)
+                        {
+                            <p>"All Authors"</p>
+                        }
+                        else
+                        {
+                            //@Html.DisplayFor(modelItem => item.AuthorFilter)
+                            @item.AuthorFilter
+                            
+                        }
+                    </td>
+                    <td>
+                        @if (item.GenreFilter == null)
+                        {
+                            <p>"All Genres"</p>
+                        }
+                        else
+                        {
+                            //@Html.DisplayFor(modelItem => item.GenreFilter)
+                            @item.GenreFilter
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
