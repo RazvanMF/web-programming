@@ -1,0 +1,99 @@
+<body>
+<div class="text-element-comic title-presenter">
+  <div>BIG BAD ADMIN PAGE >:D</div>
+  <div>here you can add, update or delete books (swag),</div>
+  <div>as well as see the whole list of books (wow).</div>
+  <div>ENJOJ!</div>
+  <button (click)="goBack()">GO BACK :(</button>
+</div>
+<div class="crud-presenter">
+  <div id="book-container" class="book-container text-element-comic">
+    <table>
+      <tr>
+        <th>Author</th>
+        <th>Title</th>
+        <th>Pages</th>
+        <th>Genre</th>
+        <th>Lended to</th>
+        <th>MODIFY</th>
+        <th>DELETE</th>
+      </tr>
+      <tr *ngFor="let item of items">
+        <th>{{item._author}}</th>
+        <th>{{item._title}}</th>
+        <th>{{item._pages}}</th>
+        <th>{{item._genre}}</th>
+        <th>{{item._lended_to}}</th>
+        <th><button (click)="onClickTweak(item._id)">TWEAK :)</button></th>
+        <th><button (click)="onClickDelete(item._id)">PURGE >:D</button></th>
+      </tr>
+    </table>
+  </div>
+  <div class="book-adder">
+    <div class="text-element-comic">add a book &gt;_&lt;</div>
+    <form (ngSubmit)="add()">
+      <table>
+        <tr>
+          <td class="text-element-comic">AUTHOR:</td>
+          <td><input type="text" [(ngModel)]="addauthor" name="addauthor"/></td>
+        </tr>
+        <tr>
+          <td class="text-element-comic">TITLE:</td>
+          <td><input type="text" [(ngModel)]="addtitle" name="addtitle"/></td>
+        </tr>
+        <tr>
+          <td class="text-element-comic">PAGES:</td>
+          <td><input type="text" [(ngModel)]="addpages" name="addpages"/></td>
+        </tr>
+        <tr>
+          <td class="text-element-comic">GENRE:</td>
+          <td><input type="text" [(ngModel)]="addgenre" name="addgenre"/></td>
+        </tr>
+        <tr>
+          <td class="text-element-comic">LENDER:</td>
+          <td><select>
+            <option *ngFor="let i of addlender" [ngValue]="i.id" (click)="selectorAdd($event)" >{{i.name}}</option>
+          </select></td>
+        </tr>
+      </table>
+      <input type="submit" value="ROFLCOPTER THIS ENTRY INTO THE DB">
+    </form>
+  </div>
+  <div class="book-updater">
+    <div class="text-element-comic">update a book :P</div>
+    <form (ngSubmit)="update()">
+      <table>
+        <tr>
+          <td class="text-element-comic">ID:</td>
+          <td><input type="text" [(ngModel)]="updateid" name="updateid" disabled></td>
+        </tr>
+        <tr>
+          <td class="text-element-comic">AUTHOR:</td>
+          <td><input type="text" [(ngModel)]="updateauthor" name="updateauthor"/></td>
+        </tr>
+        <tr>
+          <td class="text-element-comic">TITLE:</td>
+          <td><input type="text" [(ngModel)]="updatetitle" name="updatetitle"/></td>
+        </tr>
+        <tr>
+          <td class="text-element-comic">PAGES:</td>
+          <td><input type="text" [(ngModel)]="updatepages" name="updatepages"/></td>
+        </tr>
+        <tr>
+          <td class="text-element-comic">GENRE:</td>
+          <td><input type="text" [(ngModel)]="updategenre" name="updategenre"/></td>
+        </tr>
+        <tr>
+          <td class="text-element-comic">LENDER:</td>
+          <td><select>
+            <option *ngFor="let i of updatelender" [ngValue]="i.name" (click)="selectorUpdate($event)">{{i.name}}</option>
+          </select></td>
+        </tr>
+      </table>
+      <input type="submit" value="LMAONADE THIS ENTRY INTO THE DB">
+    </form>
+    <button (click)="purgeFromUpdate()">GET THIS DATA OUT OF MY SIGHT</button>
+  </div>
+</div>
+
+</body>

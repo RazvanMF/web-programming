@@ -1,0 +1,57 @@
+<body>
+<div class="text-element-comic title-presenter">
+  <div>CLIENT PAGE :*</div>
+  <div>here you can browse books,</div>
+  <div>filter them by author or genre, and rent them (nice).</div>
+  <div>be warned that you can't see books that are rented by other people (sadge).</div>
+  <div>ENJOJ!</div>
+</div>
+<button (click)="goBack()">GO BACK :(</button>
+<div class="menu-presenter">
+  <div class="text-element-comic filter-presenter">
+    <label>Author:</label>
+    <select>
+      <option *ngFor="let i of authors" [ngValue]="i.id" (click)="selectorAuthor($event)" >{{i.name}}</option>
+    </select>
+
+    <label>Genre:</label>
+    <select>
+      <option *ngFor="let i of genres" [ngValue]="i.id" (click)="selectorGenre($event)" >{{i.name}}</option>
+    </select>
+  </div>
+  <div class="container-and-filters">
+    <div id="book-container" class="book-container text-element-comic">
+      <table>
+        <tr>
+          <th>Author</th>
+          <th>Title</th>
+          <th>Pages</th>
+          <th>Genre</th>
+          <th>Lended to</th>
+          <th>LENDING SYSTEM</th>
+        </tr>
+        <tr *ngFor="let item of items">
+          <th>{{item._author}}</th>
+          <th>{{item._title}}</th>
+          <th>{{item._pages}}</th>
+          <th>{{item._genre}}</th>
+          <th>{{item._lended_to}}</th>
+          <th><button (click)="onClickLend(item._id, item._lended_to)">change ownership >_<</button></th>
+        </tr>
+      </table>
+    </div>
+    <div id="old-filters" class="old-filters text-element-comic booklet-container">
+      <div>lalaland - my personal log :></div>
+      <table>
+        <tr>
+          <th>Author & Genre Filter</th>
+        </tr>
+        <tr *ngFor="let item of filters">
+          <th>{{item}}</th>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+</body>
